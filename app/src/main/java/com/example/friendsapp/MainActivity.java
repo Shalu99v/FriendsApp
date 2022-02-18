@@ -4,6 +4,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -22,7 +23,7 @@ import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 EditText ed1,ed2,ed3,ed4;
-AppCompatButton b1;
+AppCompatButton b1,b2;
 String getName,getFriendName,getFriendNick,getDescribe;
 String  apiurl="https://dummyapifriends.herokuapp.com/adddata";
     @Override
@@ -33,6 +34,14 @@ String  apiurl="https://dummyapifriends.herokuapp.com/adddata";
         ed2=(EditText) findViewById(R.id.friendname);
         ed3=(EditText) findViewById(R.id.friendnick);
         ed4=(EditText) findViewById(R.id.decfriend);
+        b2=(AppCompatButton)findViewById(R.id.gotomenu);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(getApplicationContext(),MenuActivity.class);
+                startActivity(i);
+            }
+        });
         b1=(AppCompatButton) findViewById(R.id.submit);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
